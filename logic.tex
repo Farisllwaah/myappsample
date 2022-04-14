@@ -1,0 +1,240 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[labels]{enumitem}
+\usepackage{tikz}
+\usepackage{alltt}
+\usepackage{tcolorbox}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage[top = 1in, left = 1 in, right = 1 in, bottom = 1in]{geometry}
+\usepackage{sectsty}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools
+
+%\usepackage{draftwatermark}
+\usepackage[printwatermark]{xwatermark}
+\newwatermark[allpages,color=black!10,angle=45,scale=2,xpos=0,ypos=0]{Dr. Faris}
+%\SetWatermarkText{Dr. Faris}
+%\SetWatermarkScale{5}
+
+\title{Logical Design Lectures}
+\author{Dr. Faris Llwaah}
+\date{November 2019}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\begin{document}
+
+\maketitle
+
+\section { \huge {Lecture 1    -- Number Systems}}
+\begin{itemize}
+
+  \item[$\blacksquare$]  In early days when there were no tools of counting, people use to count with the help of fingers, stones, sticks, etc.
+  \item[$\blacksquare$] Number systems are useful in digital computers and the knowledge of these systems is necessary to perform reliable, economic and easily understandable arithmetic operation
+  \item[$\blacksquare$]  Generally there is an order set of symbols that known as "Digit"
+  \item[$\blacksquare$] Two types of number systems are:
+  \\
+  \hspace {0.5cm} $\bullet$  \textcolor{red} {Non- positional number systems: }Use symbols such as I for 1, II for 2, III for 3, IV for 4, V        
+       for 5, etc.  Each symbol represents the same value regardless of its position in the number.
+       The symbols are simply added to find out the value of a particular number Positional    
+        number systems.
+   \\
+   \hspace {0.5cm} $\bullet$  \textcolor{red} {Positional number systems: } Use only a few symbols called digits,  these symbols represent         
+       different values depending on the position they occupy in the number. The value of each        
+       digit is determined by the digit itself,  the position of the digit in the number, the base of the 
+       number system  (base = total number of digits in the number system).  The maximum value 
+       of a single digit is  always equal to one less than the value of the base.
+
+\item[$\blacksquare$]  A number system is a collection of various symbols which are called "Digit". A real number has two parts, Integer part and Fractional part, separated by a a radix point "." which known as the decimal point when the decimal number is used.
+\\
+
+\item[$\bigstar$] \textcolor{blue} {1- Decimal Number System :}  A positional number system
+\item[$\blacksquare$] Has 10 symbols or digits (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). Hence, its base = 10.
+\item[$\blacksquare$] The maximum value of a single digit is 9 (one less than the value of the base).
+\item[$\blacksquare$] Each position of a digit represents a specific power of the base (10).
+\item[$\blacksquare$] We deal with this number system in our life everyday.
+\item[$\blacksquare$] The absolute value of each digit is fixed, but its positional value is determined by its relative position or place in a given number, where this positional value is known as Weight. See the following form:\\
+
+$ \underbrace{…+n* 10^{3} + n* 10^{2} + n* 10^{1} +n* 10^{0}   }_\textbf{INTEGER} \bullet\  \underbrace{n* 10^{-1}+ n*10^{-2}+n* 10^{-3}+……}_\textbf{FRACTION} $\\\\
+
+\textcolor{red} {Example:\\
+                $456.7$ = }
+
+
+
+
+
+
+\end{itemize}
+
+
+There is a theory which states that if ever anyone discovers exactly what the Universe is for and why it is here, it will instantly disappear and be replaced by something even more bizarre and inexplicable.
+There is another theory which states that this has already happened.
+
+*************************************************
+
+\setlist{  
+  listparindent=\parindent,
+  parsep=1em
+}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\sectionfont{\fontsize{17}{15}\selectfont}
+\setlength{\parskip}{1em}
+
+\setlength{\parindent}{1cm}
+
+\newcommand{\createtitle}[4]{
+    {\Huge #1} \hfill  #2 \\
+    \-\hfill CMSCXXX
+    
+    \begin{tabular}{rl}
+        \textbf{Assigned: } & #3 \\
+        \textbf{Due: } & #4
+    \end{tabular}
+    \vspace{.75 in}}
+
+\newcommand{\mysubsection}[1]{
+    {\fontsize{13}{15}\selectfont\bf \item #1}}
+    
+\newenvironment{subenv}[1]
+{\section{#1}\vspace{.5em}\begin{enumerate}}
+{\end{enumerate}}
+
+\newcommand{\varin}[1]{\textcolor{blue}{\texttt{#1}}}
+\newcommand{\varout}[1]{\textcolor{red}{\texttt{#1}}}
+
+
+% \begin{document}
+
+\large
+
+\createtitle{Project 1 - Logic Gates}{Alex Brassel}
+            {Friday, February 2nd, 2018}
+            {Monday, February 12th, 2018}
+
+\section{Introduction}
+    \par This project is designed to test your understanding of digital logic fundamentals.  If you are taking or have taken CMSC 250, you should be relatively familiar with these already.  If not, our lecture in class today should have given you a pretty good idea of what you're working with.
+    
+    \par The idea behind a boolean expression is that there are many times where you want an outcome to happen (or be \emph{true}) only if a set of logical conditions are satisfied.  For example, let's say you are preparing dinner for the night.  You have raw chicken breasts and leftover pizza.  You are interested in whether or not you eat tonight.  
+    
+    \par Let \varout{D} be the condition that you have eaten tonight.  Let \varin{A} be the condition that you ate the chicken breast, \varin{B} be the condition that the chicken breast is cooked, and \varin{C} be the condition that you ate the leftover pizza.
+    
+    \par In this case, if you ate the leftover pizza, or if you ate the chicken breast after cooking it, you ate dinner.  You can therefore express the condition that you ate dinner, \varout{D}, as follows:
+    
+    \begin{tcolorbox}\begin{center}
+        \varout{D} = (\varin{A} AND \varin{B}) OR \varin{C}
+    \end{center}\end{tcolorbox}
+    
+    \par From here on out, we are going to use the standard abbreviations: $\land$ for \texttt{AND}, $\lor$ for \texttt{OR}, and $\overline{\text{X}}$ for \texttt{NOT}.  The boolean equation above would then be as follows:
+    
+    \begin{tcolorbox}\begin{center}
+        $\varout{D} = (\varin{A} \land \varin{B}) \lor \varin{C}$
+    \end{center}\end{tcolorbox}
+
+    \par Alternatively, you can make an explicit list of when you want the outcome to be true based on every combination of inputs.  This is an explicit enumeration of a boolean equation.  See an example below:
+    
+    \begin{tcolorbox}\begin{center}\begin{tabular}{c|c|c|c|c|c}
+        \varin{A} & \varin{B} & \varin{C}  & $\varin{A} \land \varin{B}$ & $(\varin{A} \land \varin{B}) \lor \varin{C}$ & \varout{D}\\ \hline
+        0 & 0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 1 & 0 & 1 & 1\\
+        0 & 1 & 0 & 0 & 0 & 0\\
+        0 & 1 & 1 & 0 & 1 & 1\\
+        1 & 0 & 0 & 0 & 0 & 0\\
+        1 & 0 & 1 & 0 & 1 & 1\\
+        1 & 1 & 0 & 1 & 1 & 1\\
+        1 & 1 & 1 & 1 & 1 & 1\\
+    \end{tabular}\end{center}\end{tcolorbox}
+    
+    
+    \par As we have discussed in class, Minecraft's redstone provides a mechanism to produce every single fundamental logic gate we have discussed in class.  In the project that follows, you are going to be responsible for using our \varin{input} and \varout{output} blocks to produce the appropriate gates.
+    
+    \par Here is an example of the above circuit using logic gates, which is what you will be using to design your project.  Note that it uses an input bus, like you will.
+    
+    \begin{tcolorbox}\begin{circuitikz}
+        \node (x1) at (0,0) {\varin{A}};
+        \node (x2) at (1,0) {\varin{B}};
+        \node (x3) at (2,0) {\varin{C}};
+        \node (out) at (10,-2) {\varout{D}};
+        \node[and port] at (5,-1) (and1) {};
+        \node[or port] at (8, -2) (or1) {};
+        \draw (x1) |- (and1.in 1);
+        \draw (x2) |- (and1.in 2);
+        \draw (x3) |- (or1.in 2);
+        \draw (and1.out) |- (or1.in 1);
+        \draw (or1.out) |- (out);
+        
+    \end{circuitikz}\end{tcolorbox}
+    
+\begin{subenv}{Instructions}
+    \mysubsection{Create an Input Bus}
+        \par As we mentioned in the previous section, you are going to be responsible for creating several boolean circuits to test your knowledge of logic.  Each of these circuits will take between 1 and 3 inputs.  You could take the obvious approach and make a new input block for every single circuit.  However, in order to get some practice in, we're going to require that you build an input bus.  You can view a video on how to make an input bus in our tips and tricks section.
+        
+    \mysubsection{Create the Circuits}
+        \par Now that you have an input bus (which you will extend to an appropriate length as you complete these circuits), you will begin designing the circuits required for your project.  Below are the circuits you are responsible for completing.  
+        
+        \begin{tcolorbox}
+            \begin{itemize}[noitemsep]
+            \renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
+                \item FALSE \hfill  \varout{FALSE}
+                \item TRUE  \hfill  \varout{TRUE}
+                \item $\varin{A} \land \varin{B}$ \hfill \varout{AND}
+                \item $\varin{A} \lor \varin{B}$ \hfill \varout{OR}
+                \item $\overline{\varin{A} \lor \varin{B}}$ \hfill  \varout{NOR}
+                \item $\overline{\varin{A}}$ \hfill \varout{NOT}
+                \item $\varin{A} \oplus \varin{B}$ \hfill  \varout{XOR}
+                \item $\varin{A} \Rightarrow \varin{B}$ \hfill  \varout{IMPLIES}
+                \item $\varin{A} \equiv \varin{B}$ \hfill \varout{EQUIV}
+                \item $\varin{A}\varin{B} + \varin{B}\varin{C} \ (\varin{B} + \varin{C})$ \hfill  \varout{COMPLEX}
+                \item Extra Credit: $\varin{A}^{\varin{B}}$ \hfill  \varout{X}
+            \end{itemize}
+        \end{tcolorbox}
+        
+    \par Label the output block for each circuit according to the output name in the right justified column.  Once you are done creating each circuit (make sure that they are independent of each other, as we are testing them simultaneously!), submit your project.
+    
+    \par Additionally, after doing this, draw the circuit diagrams for each of the above gates and bring them to class next Friday.  We don't believe in assigning busy work, so this is just to make sure that you understand the material.
+    
+    
+
+    
+\end{subenv}
+
+\section{Tips and Tricks}
+
+\par You can view our bus video \href{https://youtu.be/oBg1P-EZ4QM}{here}.
+
+\par You can view a redstone logic gate guide \href{https://img.wonderhowto.com/img/63/63/63472386317584/0/redstone-logic-gates-mastering-fundamental-building-blocks-for-creating-game-machines.w1456.jpg}{here}.
+
+\par Hint on the extra credit: each of the variables above is \textbf{one bit}.
+
+\end{document}
+
+
+*****************************************************
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1.7]{universe}
+\caption{The Universe}
+\label{fig:universe}
+\end{figure}
+
+\section{Conclusion}
+``I always thought something was fundamentally wrong with the universe'' \citep{adams1995hitchhiker}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
